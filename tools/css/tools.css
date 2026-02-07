@@ -1,0 +1,61 @@
+
+
+#content {
+    margin-top: 10px;
+}
+
+#h2 {
+    color: gray;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+
+#tool-implementation .field {
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: left;
+    width: 90%;
+  }
+  
+  #tool-implementation .field .undo {
+    display: none;
+    font-size: 14px;
+  }
+  
+  #tool-implementation .field textarea {
+    width: 100%;
+    max-width: 450px;
+    height: 100px;
+    background: #d5e8ff;
+    border-radius: 5px;
+    padding: 3px;
+  }  
+
+  #tool-implementation .field2 textarea {
+    width: 100%;
+    max-width: 450px;
+    height: 200px;
+    background: #d5e8ff;
+    border-radius: 5px;
+    padding: 3px;
+  }  
+
+ 
+  #tool-implementation .field input[type="submit"] {
+    padding: 3px;
+  }
+  
+  #tool-implementation .field #copy-to-clipboard {
+    margin-left: 5px;
+    padding: 3px;
+  }
+  
+  #tool-implementation .field #action-error {
+    color: red;
+  }
+  
+  #tool-implementation .field #action-success {
+    color: green;
+  }
+  

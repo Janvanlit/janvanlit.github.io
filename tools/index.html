@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert IP addresses to hexadecimal format.">
+    <meta name="keywords" content="IP, address, hex, hexadecimal, converter, tool">
+    <meta name="author" content="JLT">
+    <link rel="icon" href="/favicon.ico">
+    <title>Converter tools</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/tools.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="js/bignumber.js"></script>
+    <script type="type/javascript" src="/js/version.php"></script>
+    <script>
+      var toolname="dec-to-hex";
+      var isDebug = 'false';
+      const d = new Date();
+      let ms = d.getMilliseconds();
+
+      const isDark = window.matchMedia("(prefers-color-scheme:dark)").matches
+      const lightTheme = {
+        backgroundColor : "white",
+        color : "black"
+      }
+      const darkTheme = {
+        backgroundColor : "black",
+        color : "white"
+      }
+      isDark?darkTheme:lightTheme
+      
+      function loadScript(file) {
+        const newScript = document.createElement('script');
+        newScript.setAttribute('src', file);
+        newScript.setAttribute('type', 'text/javascript');
+        newScript.setAttribute('async', 'false');
+
+        newScript.onload = () => console.log(`${file} loaded successfully.`);
+        newScript.onerror = () => console.error(`Error loading script: ${file}`);
+
+        document.head.appendChild(newScript);
+      }
+      //loadScript("js/tools-impl/"+toolname+".js?v=873e6c");
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Converter tools</h1>
+        <h2><?php echo $toolname; ?></h2>
+    </header>
+    <main>
+        <section>
+          <div id="tool-implementation">
+          
+            <div id="tool-ip-to-hex">
+              <div class="field">
+                <textarea id="tool-text"></textarea>
+              </div>
+
+              <div class="field">
+              <div id="action-error"></div>
+              <div id="action-success"></div>
+              </div>
+              <div class="field">
+                <input type="submit" value="Execute" id="tool-submit"> 
+                <input type="button" value="Copy to clipboard" id="copy-to-clipboard"> 
+                <span id="tool-submit-undo" class="undo"><a href="#">(undo)</a></span>
+              </div>
+            </div>
+          </div>
+          <script deferred src="js/tools.js"></script>
+          <script> loadScript("js/tools-impl/"+toolname+".js?v="+ ms.toString(10));</script>
+          <script> //loadScript("js/tools.js?v="+ ms.toString(10));</script>
+        </section>
+        <br />
+        <section>
+          <a href="/tools/?tool=hex-to-dec">hex to dec</a><br />
+          <a href="/tools/?tool=dec-to-hex">dec to hex</a><br />
+          <a href="/tools/?tool=ip-to-hex">ip to hex</a><br />
+          <a href="/tools/?tool=random-uuid">generate uuid</a><br />
+          <a href="/tools/tags.php?tool=tag">convert tag</a><br />
+    </main>
+    <footer>
+        <p>&copy; 2025 Converter tools (JLT)</p>
+    </footer>
+    <div id="divdebug"><?php echo $strDebug; ?></div>
+
+
+    <script deferred src="/js/splash.js"></script>
+
+</body>
+</html>
