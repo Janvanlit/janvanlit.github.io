@@ -72,22 +72,22 @@ mkTool("tag", function(n) {
         console.log(r1);
 
         var r25 = "";
-        r25 = "0"+b1.toString(16) + b2.toString(16) + b3.toString(16) + b4.toString(16);
+        r25 = "0"+pad(b1.toString(16),2) + pad(b2.toString(16),2) + pad(b3.toString(16),2) + pad(b4.toString(16),2);
         r += "KG25: " + r25+"\n";
         $('input[name="inp-kg25"]').val(""+r25);
         console.log(r25);
 
-        r25 = "32.0.0."+b4.toString(10) + "."  + b3.toString(10) + "." + b2.toString(10) + "." + b1.toString(10);
+        r25 = "32.0.0."+pad(b4.toString(10),2) + "."  + pad(b3.toString(10),2) + "." + pad(b2.toString(10),2) + "." + pad(b1.toString(10),2);
         r += "KG15: " + r25+"\n";
         $('input[name="inp-kg15"]').val(""+r25);
         console.log(r25);
 
-        var c = new BigNumber("0"+b1.toString(16) + b2.toString(16) + b3.toString(16) + b4.toString(16),16);
+        var c = new BigNumber("0"+pad(b1.toString(16),2) + pad(b2.toString(16),2) + pad(b3.toString(16),2) + pad(b4.toString(16),2),16);
         r25 = c.toString(10);
         $('input[name="inp-hcp"]').val(""+r25);
         r += "HCP: " + r25+"\n";
 
-        r25 = ""+b4.toString(16) + b3.toString(16) + b2.toString(16) + b1.toString(16);
+        r25 = ""+pad(b4.toString(16),2) + pad(b3.toString(16),2) + pad(b2.toString(16),2) + pad(b1.toString(16),2);
         r += "UNIFI: " + r25+"\n";
         $('input[name="inp-unifi"]').val(""+r25);
         console.log(r25);

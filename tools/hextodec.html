@@ -12,13 +12,24 @@
     <link rel="stylesheet" href="css/tools.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="js/bignumber.js"></script>
-    <script src="/js/utils.js"></script>
+    <script type="type/javascript" src="/js/version.php"></script>
     <script>
-      var toolname="tag";
+      var toolname="hex-to-dec";
+      var isDebug = 'false';
       const d = new Date();
       let ms = d.getMilliseconds();
 
-
+      const isDark = window.matchMedia("(prefers-color-scheme:dark)").matches
+      const lightTheme = {
+        backgroundColor : "white",
+        color : "black"
+      }
+      const darkTheme = {
+        backgroundColor : "black",
+        color : "white"
+      }
+      isDark?darkTheme:lightTheme
+      
       function loadScript(file) {
         const newScript = document.createElement('script');
         newScript.setAttribute('src', file);
@@ -37,27 +48,20 @@
   <menu>
     <a href="/">Home</a><br />
   </menu>
-  <header>
+    <header>
         <h1>Converter tools</h1>
-        <h2>Door access tag</h2>
+        <h2>hex to dec</h2>
     </header>
     <main>
         <section>
           <div id="tool-implementation">
           
             <div id="tool-ip-to-hex">
-            <div class="field">
+              <div class="field">
                 <input type="text" id="tool-text" name="tool-text"></input>
               </div>
               <div class="field">
                 <textarea id="div-output"></textarea>
-              </div>
-              <div class="field">
-                <div id="divkg15">KG15 <input type="text" name="inp-kg15" id="inp-kg15"></input> <input type="button" value="cc" id="btn-cc-kg15"> </div>
-                <div id="divkg25">KG25 <input type="text" name="inp-kg25" id="inp-kg25"></input> <input type="button" value="cc" id="btn-cc-kg25"> </div>
-                <div id="divunifi">Unifi <input type="text" name="inp-unifi" id="inp-unifi"></input> <input type="button" value="cc" id="btn-cc-unifi"> </div>
-                <div id="divhex">HEX <input type="text" name="inp-hex" id="inp-hex"></input> <input type="button" value="cc" id="btn-cc-hex"> </div>
-                <div id="divhcp">HCP <input type="text" name="inp-hcp" id="inp-hcp"></input> <input type="button" value="cc" id="btn-cc-hcp"> </div>
               </div>
               <div class="field">
               <div id="action-error"></div>
@@ -82,40 +86,5 @@
     </footer>
     <div id="divdebug"><?php echo $strDebug; ?></div>
 
-    <script>
-    $(function () {
-      // make copy to clipboard work
-      //
-      $('#btn-cc-kg15').click(function (ev) {
-          ev.preventDefault();
-          $('#inp-kg15').select();
-          console.log("copy to clipboard" + $('#inp-kg15').text());
-          document.execCommand('copy');
-      });
-      $('#btn-cc-kg25').click(function (ev) {
-          ev.preventDefault();
-          $('#inp-kg25').select();
-          document.execCommand('copy');
-      });
-      $('#btn-cc-unifi').click(function (ev) {
-          ev.preventDefault();
-          $('#inp-unifi').select();
-          document.execCommand('copy');
-      });
-      $('#btn-cc-hex').click(function (ev) {
-          ev.preventDefault();
-          $('#inp-hex').select();
-          document.execCommand('copy');
-      });
-      $('#btn-cc-hcp').click(function (ev) {
-          ev.preventDefault();
-          $('#inp-hcp').select();
-          document.execCommand('copy');
-      });
-  
-    });
-    </script>
-
 </body>
 </html>
-
